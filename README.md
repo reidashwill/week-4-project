@@ -13,10 +13,33 @@ _This web app allows for the creation of a pizza by the user.  The page intereac
 * _Navigate your browser to https://github.com/reidashwill/week-4-project_
 * _Clone the repository_
 * _Open index.html in your browser of choice_
-* __
+* 
 * _OR navigate to https://reidashwill.github.io/week-4-project/_
 
-__
+## Specs
+
+Behavior 1 - User selects size of pizza
+                  input: small  
+                  output: small
+
+Behavior 2 - User selects any number of toppings
+                  input: mushrooms, sausage
+                  output: mushrooms, sausage
+
+Behavior 3 - User selects delivery destination
+                  input: The Promenade
+                  output: The Promenade
+
+Behavior 4 - Program calculates price
+                  input: size: small, toppings:mushroom, sausage
+                  output: 10 + 2 + 2 = 14  
+                     
+Behavior 5 - snazz up the return by concatenating the variables 
+             at play with other descriptive strings.
+                  input: size: small, toppings:mushroom, sausage
+                  output: You ordered a small pizza with mushrooms 
+                  and sausage!  that'll be 14 bucks!          
+
 
 ## Known Bugs
 
