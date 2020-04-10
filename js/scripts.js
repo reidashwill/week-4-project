@@ -13,8 +13,14 @@ PizzaShop.prototype.addPizza = function (pizza){
   this.pizzas.push(pizza)
 }
 PizzaShop.prototype.checkOut = function(){
-  grandTotal = 0
-  grandTotal += this.pizzas.forEach
+    for (i=0; i>=this.pizzas.length; i++){
+    var grandTotal =+ this.pizzas[i]
+    debugger;
+    console.log(this.pizzas[1].price)
+  console.log(quarks);
+  console.log(grandTotal);
+  }
+  console.log(this.pizzas[1].price)
   console.log(quarks);
   console.log(grandTotal);
 }
