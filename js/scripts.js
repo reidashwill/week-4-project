@@ -12,6 +12,12 @@ PizzaShop.prototype.addPizza = function (pizza){
   pizza.id = this.assignId();
   this.pizzas.push(pizza)
 }
+PizzaShop.prototype.checkOut = function(){
+  grandTotal = 0
+  grandTotal += this.pizzas.forEach
+  console.log(quarks);
+  console.log(grandTotal);
+}
 // business logic for pizza------------------------------------------------
 
 function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, price){
@@ -35,8 +41,8 @@ Pizza.prototype.pizzaPrice = function() {
   }
   return (this.price += this.toppings.length  + (this.specialtyToppings.length * 2) + (this.cheeses.length *2))
   }
-//Pizza UI logic ------------------------------------------------------------------
-$("#return-field").append("test")
+//UI logic ------------------------------------------------------------------
+
 function displayPizza(newPizza) {
   $("#return-field").html("")
 
@@ -51,11 +57,19 @@ function displayPizza(newPizza) {
   if(newPizza.cheeses.length >= 1){
   $("#return-field").append(" and smothered in melted" + newPizza.cheeses + "!")
   } 
-  $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+  $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, one of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
   
 }
+function attachContactListeners () {
+  $("#check-out").on("click", function() {
+    quarks.checkOut();
+  });
+  
+};
+
 var quarks = new PizzaShop
 $(document).ready(function(){
+  attachContactListeners();
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
     var inputtedToppings = [];
@@ -75,15 +89,14 @@ $(document).ready(function(){
       var cheese = $(this).val();
       inputtedCheese.push(cheese)
     })
+    $('input[type=checkbox]').prop('checked',false);
   
    
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation)
+    
     quarks.addPizza(newPizza)
-    console.log(quarks);
-    // console.log(newPizza.pizzaPrice())
-    // console.log(newPizza)
+    console.log(newPizza.pizzaPrice())
+    console.log(newPizza)
     displayPizza(newPizza);
-    var keys = Object.values(newPizza)
-    console.log(keys)
   })
 })
