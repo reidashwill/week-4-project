@@ -33,11 +33,12 @@ Pizza.prototype.pizzaPrice = function() {
   }else if(this.size === "extra large"){
     this.price = 28
   }
-  return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
+  return (this.price += this.toppings.length  + (this.specialtyToppings.length * 2) + (this.cheeses.length *2))
   }
 //Pizza UI logic ------------------------------------------------------------------
 $("#return-field").append("test")
 function displayPizza(newPizza) {
+  $("#return-field").html("")
     $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with: ")
      if(newPizza.toppings.length >=1){
       $("#return-field").append(newPizza.toppings + ", ")
@@ -48,7 +49,7 @@ function displayPizza(newPizza) {
      if(newPizza.cheeses.length >= 1){
       $("#return-field").append(" and smothered in melted" + newPizza.cheeses + "!")
      } 
-     $("#return-field").append("  once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+     $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
   
 }
 $(document).ready(function(){
