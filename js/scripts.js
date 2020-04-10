@@ -21,7 +21,7 @@ Pizza.prototype.pizzaPrice = function() {
   }
   return (this.price += this.toppings.length  + (this.specialtyToppings.length * 2) + (this.cheeses.length *2))
   }
-  
+
 //UI logic ------------------------------------------------------------------
 
 function displayPizza(newPizza) {
@@ -42,9 +42,9 @@ function displayPizza(newPizza) {
   
 }
 
-var quarks = new PizzaShop
+
 $(document).ready(function(){
-  attachContactListeners();
+  
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
     var inputtedToppings = [];
