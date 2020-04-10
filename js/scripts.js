@@ -1,5 +1,5 @@
 // Business logic for pizza shop--------------------------------------------
-
+// to be implemented later to add functionality for multiple pizzas
 function PizzaShop(){
   this.pizzas = []
   this.currentId = 0;
@@ -20,16 +20,11 @@ function Pizza(size, toppings, specialtyToppings, price){
   this.specialtyToppings = specialtyToppings
   this.price = 0
 }
-Pizza.prototype.pizzaSize = function(inputtedSize) {
-  this.size.append(toString(inputtedSize))
-}
-Pizza.prototype.addTopping = function(inputtedTopping) {
-  this.toppings.push(inputtedTopping)
-}
-Pizza.prototype.addSpecialtyTopping = function(specialtyToppings){
-  this.specialtyToppings.push(inputtedSpecialtyTopping)
-}
+
 Pizza.prototype.pizzaPrice = function() {
+  if(this.size === "sm"){
+    this.price =+ 13
+  }
   return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
   }
 //UI logic ------------------------------------------------------------------
@@ -51,6 +46,7 @@ $(document).ready(function(){
   
    
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings)
+    console.log(newPizza.pizzaPrice())
     console.log(newPizza)
   })
 })
