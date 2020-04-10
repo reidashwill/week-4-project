@@ -1,17 +1,17 @@
 // Business logic for pizza shop--------------------------------------------
-// to be implemented later to add functionality for multiple pizzas
-// function PizzaShop(){
-//   this.pizzas = []
-//   this.currentId = 0;
-// }
-// PizzaShop.prototype.assignId = function(){
-//   this.currentId +=1;
-//   return this.currentId
-// }
-// PizzaShop.prototype.addPizza = function (pizza){
-//   contact.id = this.assignId();
-//   this.pizzas.push(pizza)
-// }
+
+function PizzaShop(){
+  this.pizzas = []
+  this.currentId = 0;
+}
+PizzaShop.prototype.assignId = function(){
+  this.currentId +=1;
+  return this.currentId
+}
+PizzaShop.prototype.addPizza = function (pizza){
+  pizza.id = this.assignId();
+  this.pizzas.push(pizza)
+}
 // business logic for pizza------------------------------------------------
 
 function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, price){
@@ -39,19 +39,22 @@ Pizza.prototype.pizzaPrice = function() {
 $("#return-field").append("test")
 function displayPizza(newPizza) {
   $("#return-field").html("")
-    $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with: ")
-     if(newPizza.toppings.length >=1){
-      $("#return-field").append(newPizza.toppings + ", ")
-     }
-     if(newPizza.specialtyToppings.length >= 1){
-      $("#return-field").append(newPizza.specialtyToppings + ", ")
-     }
-     if(newPizza.cheeses.length >= 1){
-      $("#return-field").append(" and smothered in melted" + newPizza.cheeses + "!")
-     } 
-     $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+
+  $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with: ")
+    
+  if(newPizza.toppings.length >=1){
+  $("#return-field").append(newPizza.toppings + ", ")
+  }
+  if(newPizza.specialtyToppings.length >= 1){
+  $("#return-field").append(newPizza.specialtyToppings + ", ")
+  }
+  if(newPizza.cheeses.length >= 1){
+  $("#return-field").append(" and smothered in melted" + newPizza.cheeses + "!")
+  } 
+  $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
   
 }
+var quarks = new PizzaShop
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
@@ -75,8 +78,10 @@ $(document).ready(function(){
   
    
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation)
-    console.log(newPizza.pizzaPrice())
-    console.log(newPizza)
+    quarks.addPizza(newPizza)
+    console.log(quarks);
+    // console.log(newPizza.pizzaPrice())
+    // console.log(newPizza)
     displayPizza(newPizza);
     var keys = Object.values(newPizza)
     console.log(keys)
