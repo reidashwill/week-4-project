@@ -1,6 +1,6 @@
-// Business logic for pizza shop
+// Business logic for pizza shop--------------------------------------------
 
-function PizzaShop{
+function PizzaShop(){
   this.pizzas = []
   this.currentId = 0;
 }
@@ -11,8 +11,8 @@ PizzaShop.prototype.assignId = function(){
 PizzaShop.prototype.addPizza = function (pizza){
   contact.id = this.assignId();
   this.pizzas.push(pizza)
-
-  // business logic for pizza
+}
+  // business logic for pizza------------------------------------------------
 
 function Pizza(){
   this.size = ""
@@ -32,9 +32,15 @@ Pizza.prototype.addSpecialtyTopping = function(specialtyToppings){
 Pizza.prototype.pizzaPrice = function() {
   this.price += this.toppings.length
   }
+//UI logic ------------------------------------------------------------------
 
-
-
-
-  
-
+$(document).ready(function(){
+  $("form#pizza-builder").submit(function(event){
+    event.preventDefault();
+    var inputtedSize = $("#size").val();
+    var inputtedToppingOne = $("input:checkbox[name=topping1]:checked").val()
+    var inputtedToppingTwo = $("input:checkbox[name=topping2]:checked").val()
+    var inputtedToppingThree = $("input:checkbox[name=topping3]:checked").val()
+    console.log(inputtedSize)
+  })
+})
