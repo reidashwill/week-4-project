@@ -8,29 +8,25 @@ PizzaShop.prototype.assignId = function(){
   this.currentId +=1;
   return this.currentId
 }
-PizzaShop.prototype.findPizza = function(id) {
-  for (var i=0; i< this.pizzas.length; i++) {
-    if (this.pizzas[i]) {
-      if (this.pizzas[i].id == id) {
-        return this.pizzas[i].price;
-      }
-    }
-  };
-} 
+
 PizzaShop.prototype.addPizza = function (pizza){
   pizza.id = this.assignId();
   this.pizzas.push(pizza)
 }
+ var grandTotal = 0
 PizzaShop.prototype.checkOut = function(){
-    grandTotal = 0;
-    console.log(quarks.findPizza(2));
+  for (var i=0; i< this.pizzas.length; i++) {
+      var priceHolder = null
+      grandTotal += this.pizzas[i].price
+      
+      console.log(this.pizzas[1].length);
+      console.log(quarks);
+      console.log(priceHolder);
+      
+    }
     
+  console.log(this.pizzas[1].length); 
   console.log(quarks);
-  console.log(grandTotal);
-  
-  // console.log(this.pizzas.length)
-  // console.log(typeof(this.pizzas[1].price))
-  // console.log(quarks);
   // console.log(grandTotal);
 }
 // business logic for pizza------------------------------------------------
