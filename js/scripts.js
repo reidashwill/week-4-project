@@ -1,29 +1,29 @@
 // Business logic for pizza shop--------------------------------------------
 
-function PizzaShop(){
-  this.pizzas = []
-  this.currentId = 0;
-}
-PizzaShop.prototype.assignId = function(){
-  this.currentId +=1;
-  return this.currentId
-}
-PizzaShop.prototype.addPizza = function (pizza){
-  pizza.id = this.assignId();
-  this.pizzas.push(pizza)
-}
-PizzaShop.prototype.checkOut = function(){
-    for (i=0; i>=this.pizzas.length; i++){
-    var grandTotal =+ this.pizzas[i]
-    debugger;
-    console.log(this.pizzas[1].price)
-  console.log(quarks);
-  console.log(grandTotal);
-  }
-  console.log(this.pizzas[1].price)
-  console.log(quarks);
-  console.log(grandTotal);
-}
+// function PizzaShop(){
+//   this.pizzas = []
+//   this.currentId = 0;
+// }
+// PizzaShop.prototype.assignId = function(){
+//   this.currentId +=1;
+//   return this.currentId
+// }
+// PizzaShop.prototype.addPizza = function (pizza){
+//   pizza.id = this.assignId();
+//   this.pizzas.push(pizza)
+// }
+// PizzaShop.prototype.checkOut = function(){
+//     for (i=0; i>=this.pizzas.length; i++){
+//     var grandTotal =+ this.pizzas[i]
+//     debugger;
+//     console.log(this.pizzas[1].price)
+//   console.log(quarks);
+//   console.log(grandTotal);
+//   }
+//   console.log(this.pizzas[1].price)
+//   console.log(quarks);
+//   console.log(grandTotal);
+// }
 // business logic for pizza------------------------------------------------
 
 function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, price){
@@ -73,7 +73,7 @@ function attachContactListeners () {
   
 };
 
-var quarks = new PizzaShop
+// var quarks = new PizzaShop
 $(document).ready(function(){
   attachContactListeners();
   $("form#pizza-builder").submit(function(event){
