@@ -14,7 +14,7 @@ PizzaShop.prototype.addPizza = function (pizza){
 }
   // business logic for pizza------------------------------------------------
 
-function Pizza(){
+function Pizza(size, toppings, specialtytoppings, price){
   this.size = ""
   this.toppings = []
   this.specialtyToppings = []
@@ -30,17 +30,27 @@ Pizza.prototype.addSpecialtyTopping = function(specialtyToppings){
   this.specialtyToppings.push(specialtyTopping)
 }
 Pizza.prototype.pizzaPrice = function() {
-  this.price += this.toppings.length
+  return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
   }
 //UI logic ------------------------------------------------------------------
 
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
-    var inputtedSize = $("#size").val();
-    var inputtedToppingOne = $("input:checkbox[name=topping1]:checked").val()
-    var inputtedToppingTwo = $("input:checkbox[name=topping2]:checked").val()
-    var inputtedToppingThree = $("input:checkbox[name=topping3]:checked").val()
-    console.log(inputtedSize)
+    var size = $("#size").val();
+    var toppings = [];
+    var specializedToppings = [];
+    $("input:checkbox[name=topping]:checked").each(function(){
+      var topping = $(this).val();
+      toppings.push(topping)
+    })
+    $("input:checkbox[name=specializedTopping]:checked").each(function(){
+      var specializedTopping = $(this).val();
+      specializedToppings.push(specializedTopping)
+    })
+    console.log(toppings)
+    console.log(specializedToppings)
+    
+   
   })
 })
