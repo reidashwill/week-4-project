@@ -1,18 +1,18 @@
 // Business logic for pizza shop--------------------------------------------
 // to be implemented later to add functionality for multiple pizzas
-function PizzaShop(){
-  this.pizzas = []
-  this.currentId = 0;
-}
-PizzaShop.prototype.assignId = function(){
-  this.currentId +=1;
-  return this.currentId
-}
-PizzaShop.prototype.addPizza = function (pizza){
-  contact.id = this.assignId();
-  this.pizzas.push(pizza)
-}
-  // business logic for pizza------------------------------------------------
+// function PizzaShop(){
+//   this.pizzas = []
+//   this.currentId = 0;
+// }
+// PizzaShop.prototype.assignId = function(){
+//   this.currentId +=1;
+//   return this.currentId
+// }
+// PizzaShop.prototype.addPizza = function (pizza){
+//   contact.id = this.assignId();
+//   this.pizzas.push(pizza)
+// }
+// business logic for pizza------------------------------------------------
 
 function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, price){
   this.size = size;
@@ -35,8 +35,11 @@ Pizza.prototype.pizzaPrice = function() {
   }
   return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
   }
-//UI logic ------------------------------------------------------------------
+//Pizza UI logic ------------------------------------------------------------------
 
+function displayPizza(newPizza) {
+  $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:" + newPizza.toppings + "," + newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+}
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
@@ -62,6 +65,6 @@ $(document).ready(function(){
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation)
     console.log(newPizza.pizzaPrice())
     console.log(newPizza)
-    $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:" + newPizza.toppings + "," + newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+    displayPizza(newPizza);
   })
 })
