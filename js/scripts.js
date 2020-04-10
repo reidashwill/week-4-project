@@ -23,7 +23,13 @@ function Pizza(size, toppings, specialtyToppings, price){
 
 Pizza.prototype.pizzaPrice = function() {
   if(this.size === "sm"){
-    this.price =+ 13
+    this.price = 16
+  }else if(this.pize === "md"){
+    this.price = 20
+  }else if(this.size === "lrg"){
+    this.price = 24
+  }else if(this.size === "xl"){
+    this.price = 28
   }
   return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
   }
@@ -48,5 +54,6 @@ $(document).ready(function(){
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings)
     console.log(newPizza.pizzaPrice())
     console.log(newPizza)
+    $("#return-field").append()
   })
 })
