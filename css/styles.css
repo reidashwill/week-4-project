@@ -1,14 +1,33 @@
 .jumbotron{
   text-align: center;
-  background-color: cadetblue;
+  background-color: rgb(49, 49, 48);
+  color: black;
 }
 #ds9{
-  width: 75vh;
-  float: left;
+  float: center;
+  width: 100vh;
+  
 }
 #quark{
+  
+  margin-top: 10px;
 
 }
 body{
   background-color: black;
+  color: white
 }
+#pizza-form{
+  color:white;
+}
+.selector{
+  color: black;
+}
+button{
+  color: black;
+}
+
+
+/* * {
+  border: solid red;
+} */

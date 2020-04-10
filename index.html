@@ -10,17 +10,17 @@
   <title>Document</title>
 </head>
 <div class="jumbotron">
-  <h1>Quarks Bar Pizza</h1>
-  <h3>the best pizza this side of the wormhole!</h3>
-  <img id="quark" src="img/quark.png">
-</div>
+  <h1>Quark's Pizzeria</h1>
+  <h3>"The best pizza this side of the wormhole!"</h3>
+  <footer>-Morn</footer>
+  </div>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div id="pizza-form" class="col-md-4">
         <form id="pizza-builder">
           <p>Delivery Location:</p>
-          <select id="delivery-location">
+          <select class="selector" id="delivery-location">
             <option value=" The Habitat Ring">Habitat Ring</option>
             <option value=" Engineering">Engineering</option>
             <option value=" Ops">Ops</option>
@@ -29,7 +29,7 @@
           <br>
 
           <p>Size:</p>
-          <select id = size>
+          <select class="selector" id = size>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
@@ -75,12 +75,14 @@
           <button type="submit">Order Now</button>
 
         </form>
+        <img id="quark" src="img/quark.png">
       </div>
+      
       <div class="col-md-8">
-        <div>
-          <img id="ds9" src="img/ds9.jpeg">
-          <p id="return-field"></p>
-        </div>
+        
+        <img id="ds9" src="img/ds9.jpeg">
+        <p id="return-field"></p>  
+        
       </div>
    </div>
   </div>
