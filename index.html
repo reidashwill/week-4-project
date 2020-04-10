@@ -17,13 +17,29 @@
   <div class="container">
     <div>
       <div>
-        <p>Size:</p>
-        <select id = size>
-          <option value="sm">Small</option>
-          <option value="md">Medium</option>
-          <option value="lg">Large</option>
-          <option value="xl">Extra Large</option>
-        </select>
+        <form id="pizza-builder">
+
+          <p>Size:</p>
+          <select id = size>
+            <option value="sm">Small</option>
+            <option value="md">Medium</option>
+            <option value="lg">Large</option>
+            <option value="xl">Extra Large</option>
+          </select>
+          <br>
+          <br>
+
+          <p>Toppings:</p>
+          <input type="checkbox" id="topping1" name="topping1" value="pepperoni">
+          <label for="topping1"> Pepperoni</label><br>
+          
+          <input type="checkbox" id="topping2" name="topping2" value="mushrooms">
+          <label for="topping2"> Mushrooms</label><br>
+          
+          <input type="checkbox" id="topping3" name="topping3" value="olives">
+          <label for="topping3"> Olives</label><br>
+
+        </form>
       </div>
     </div>
 
