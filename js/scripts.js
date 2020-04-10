@@ -1,34 +1,3 @@
-// Business logic for pizza shop--------------------------------------------
-
-function PizzaShop(){
-  this.pizzas = []
-  this.currentId = 0;
-}
-PizzaShop.prototype.assignId = function(){
-  this.currentId +=1;
-  return this.currentId
-}
-
-PizzaShop.prototype.addPizza = function (pizza){
-  pizza.id = this.assignId();
-  this.pizzas.push(pizza)
-}
- var grandTotal = 0
-PizzaShop.prototype.checkOut = function(){
-  for (var i=0; i< this.pizzas.length; i++) {
-      var priceHolder = null
-      grandTotal += this.pizzas[i].price
-      
-      console.log(this.pizzas[1].length);
-      console.log(quarks);
-      console.log(priceHolder);
-      
-    }
-    
-  console.log(this.pizzas[1].length); 
-  console.log(quarks);
-  // console.log(grandTotal);
-}
 // business logic for pizza------------------------------------------------
 
 function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, price){
@@ -52,6 +21,7 @@ Pizza.prototype.pizzaPrice = function() {
   }
   return (this.price += this.toppings.length  + (this.specialtyToppings.length * 2) + (this.cheeses.length *2))
   }
+  
 //UI logic ------------------------------------------------------------------
 
 function displayPizza(newPizza) {
@@ -71,12 +41,6 @@ function displayPizza(newPizza) {
   $("#return-field").append(" once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, one of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
   
 }
-function attachContactListeners () {
-  $("#check-out").on("click", function() {
-    quarks.checkOut();
-  });
-  
-};
 
 var quarks = new PizzaShop
 $(document).ready(function(){
@@ -104,16 +68,6 @@ $(document).ready(function(){
   
    
     var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation)
-    
-    quarks.addPizza(newPizza)
-    console.log(newPizza.pizzaPrice())
-    console.log(newPizza)
     displayPizza(newPizza);
-
-    for (i=0; i > quarks.pizzas.length; i++){
-      var grandTotal =+ this.pizzas[i].price
-    console.log(quarks);
-    console.log(grandTotal);
-    }
   })
 })
