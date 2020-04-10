@@ -8,17 +8,26 @@ PizzaShop.prototype.assignId = function(){
   this.currentId +=1;
   return this.currentId
 }
+PizzaShop.prototype.findPizza = function(id) {
+  for (var i=0; i< this.pizzas.length; i++) {
+    if (this.pizzas[i]) {
+      if (this.pizzas[i].id == id) {
+        return this.pizzas[i].price;
+      }
+    }
+  };
+} 
 PizzaShop.prototype.addPizza = function (pizza){
   pizza.id = this.assignId();
   this.pizzas.push(pizza)
 }
 PizzaShop.prototype.checkOut = function(){
-    forEach(this.pizzas[1].price)
-    var grandTotal =+ this.pizzas[i].price
+    grandTotal = 0;
+    console.log(quarks.findPizza(2));
     
   console.log(quarks);
   console.log(grandTotal);
-  }
+  
   // console.log(this.pizzas.length)
   // console.log(typeof(this.pizzas[1].price))
   // console.log(quarks);
