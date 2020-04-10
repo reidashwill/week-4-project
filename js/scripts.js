@@ -14,20 +14,20 @@ PizzaShop.prototype.addPizza = function (pizza){
 }
   // business logic for pizza------------------------------------------------
 
-function Pizza(size, toppings, specialtytoppings, price){
-  this.size = ""
-  this.toppings = []
-  this.specialtyToppings = []
+function Pizza(size, toppings, specialtyToppings, price){
+  this.size = size
+  this.toppings = toppings
+  this.specialtyToppings = specialtyToppings
   this.price = 0
 }
-Pizza.prototype.pizzaSize = function(size) {
-  this.size.append(size)
+Pizza.prototype.pizzaSize = function(inputtedSize) {
+  this.size.append(toString(inputtedSize))
 }
-Pizza.prototype.addTopping = function(topping) {
-  this.toppings.push(topping)
+Pizza.prototype.addTopping = function(inputtedTopping) {
+  this.toppings.push(inputtedTopping)
 }
 Pizza.prototype.addSpecialtyTopping = function(specialtyToppings){
-  this.specialtyToppings.push(specialtyTopping)
+  this.specialtyToppings.push(inputtedSpecialtyTopping)
 }
 Pizza.prototype.pizzaPrice = function() {
   return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
@@ -37,20 +37,20 @@ Pizza.prototype.pizzaPrice = function() {
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
     event.preventDefault();
-    var size = $("#size").val();
-    var toppings = [];
-    var specializedToppings = [];
+    var inputtedSize = $("#size").val();
+    var inputtedToppings = [];
+    var inputtedSpecialtyToppings = [];
     $("input:checkbox[name=topping]:checked").each(function(){
       var topping = $(this).val();
-      toppings.push(topping)
+      inputtedToppings.push(topping)
     })
     $("input:checkbox[name=specializedTopping]:checked").each(function(){
-      var specializedTopping = $(this).val();
-      specializedToppings.push(specializedTopping)
+      var specialtyTopping = $(this).val();
+      inputtedSpecialtyToppings.push(specialtyTopping)
     })
-    console.log(toppings)
-    console.log(specializedToppings)
-    
+  
    
+    var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings)
+    console.log(newPizza)
   })
 })
