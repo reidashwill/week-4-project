@@ -36,13 +36,20 @@ Pizza.prototype.pizzaPrice = function() {
   return (this.price += (this.toppings.length / 2) + this.specialtyToppings.length)
   }
 //Pizza UI logic ------------------------------------------------------------------
-
+$("#return-field").append("test")
 function displayPizza(newPizza) {
-  if(newPizza.toppings.length === 0){
-    $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:"+ newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
-  }else{
-  $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:" + newPizza.toppings + "," + newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
-  }
+    $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with: ")
+     if(newPizza.toppings.length >=1){
+      $("#return-field").append(newPizza.toppings + ", ")
+     }
+     if(newPizza.specialtyToppings.length >= 1){
+      $("#return-field").append(newPizza.specialtyToppings + ", ")
+     }
+     if(newPizza.cheeses.length >= 1){
+      $("#return-field").append(" and smothered in melted" + newPizza.cheeses + "!")
+     } 
+     $("#return-field").append("  once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+  
 }
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
@@ -70,5 +77,7 @@ $(document).ready(function(){
     console.log(newPizza.pizzaPrice())
     console.log(newPizza)
     displayPizza(newPizza);
+    var keys = Object.values(newPizza)
+    console.log(keys)
   })
 })
