@@ -38,7 +38,11 @@ Pizza.prototype.pizzaPrice = function() {
 //Pizza UI logic ------------------------------------------------------------------
 
 function displayPizza(newPizza) {
+  if(newPizza.toppings.length === 0){
+    $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:"+ newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+  }else{
   $("#return-field").append("We're firing up the replicators! Your " + newPizza.size + " pizza is on its way!  It will be fully loaded with:" + newPizza.toppings + "," + newPizza.specialtyToppings + "," + newPizza.cheeses + "!  Once we have verified your payment of " + newPizza.price + " strips of Gold Pressed Latinum, One of our Dabo Girls will be delivering it to " + newPizza.deliveryLocation + " as soon as it's ready!")
+  }
 }
 $(document).ready(function(){
   $("form#pizza-builder").submit(function(event){
