@@ -14,7 +14,7 @@ _This web app allows for the creation of a pizza by the user.  The page intereac
 * _Clone the repository_
 * _Open index.html in your browser of choice_
 * 
-* _OR navigate to https://reidashwill.github.io/week-4-project/_
+* 
 
 ## Specs
 
