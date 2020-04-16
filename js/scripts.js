@@ -9,7 +9,7 @@ function Pizza(size, toppings, specialtyToppings, cheese, deliveryLocation, pric
   this.price = 0;
 }
 
-Pizza.prototype.pizzaPrice = function() {
+Pizza.prototype.pizzaPrice = function(size, toppings, specialtyToppings, cheeses) {
   if(this.size === "small"){
     this.price = 16
   }else if(this.size === "medium"){
@@ -19,6 +19,7 @@ Pizza.prototype.pizzaPrice = function() {
   }else if(this.size === "extra large"){
     this.price = 28
   }
+ 
   return (this.price += this.toppings.length  + (this.specialtyToppings.length * 2) + (this.cheeses.length *2))
   }
 
@@ -52,6 +53,7 @@ $(document).ready(function(){
     var inputtedCheese = [];
     var inputtedSize = $("#size").val();
     var inputtedDeliveryLocation = $("#delivery-location").val();
+  
     $("input:checkbox[name=topping]:checked").each(function(){
       var topping = $(this).val();
       inputtedToppings.push(topping)
@@ -67,7 +69,8 @@ $(document).ready(function(){
     $('input[type=checkbox]').prop('checked',false);
   
    
-    var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation)
+    var newPizza = new Pizza(inputtedSize, inputtedToppings, inputtedSpecialtyToppings, inputtedCheese, inputtedDeliveryLocation,)
+    newPizza.price = newPizza.pizzaPrice()
     displayPizza(newPizza);
   })
 })
